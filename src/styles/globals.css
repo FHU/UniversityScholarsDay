@@ -113,6 +113,13 @@ textarea {
   padding-block: 1rem;
 }
 
+@media (width < 768px) {
+  .top-nav-header {
+    padding-block: 0.5rem;
+  }
+}
+
+
 .brand-row {
   display: flex;
   align-items: center;
@@ -123,6 +130,12 @@ textarea {
   height: 64px;
   width: auto;
   flex-shrink: 0;
+}
+
+@media (width < 640px) {
+  .brand-logo {
+    height: 48px;
+  }
 }
 
 .brand {
@@ -161,7 +174,7 @@ textarea {
   font-weight: 300;
 }
 
-@media screen and (width < 600px) {
+@media (width < 640px) {
   .brand-info {
     display: none;
   }
