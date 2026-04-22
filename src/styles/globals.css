@@ -220,7 +220,7 @@ textarea {
 
 .tab:hover {
   color: var(--fhu-white);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .tab[aria-current="page"] {
@@ -308,7 +308,7 @@ textarea {
 }
 
 .room-filter summary::after {
-  content: "▾";
+  content: "▼";
   color: var(--fhu-grey-500);
   transition: transform 150ms ease;
 }
@@ -754,7 +754,7 @@ textarea {
 }
 
 .app-footer {
-  padding: 24px 16px;
+  padding: 1rem 2rem;
   text-align: center;
   font-size: 0.8rem;
   color: var(--fhu-grey-500);
