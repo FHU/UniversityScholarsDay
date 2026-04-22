@@ -84,6 +84,7 @@ textarea {
 /* ── Header ───────────────────────────────────────────────── */
 .top-nav {
   background: var(--fhu-maroon);
+  background: linear-gradient(135deg, #5a1220 0%, #661424 50%, #72192b 100%);
   color: var(--fhu-white);
   box-shadow: var(--shadow-sm);
   position: sticky;
