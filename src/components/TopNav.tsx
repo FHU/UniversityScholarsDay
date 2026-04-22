@@ -16,7 +16,7 @@ export function TopNav({ activeTab, onTabChange, selectionCount }: Props) {
             <div className="brand">
               <span className="brand-eyebrow">Freed-Hardeman University</span>
               <span className="brand-title">University Scholars' Day</span>
-              <span className="brand-tagline">Celebrating Scholarship and Academic Achievement</span>
+              {/* <span className="brand-tagline">Celebrating Scholarship and Academic Achievement</span> */}
             </div>
           </div>
           <div className="brand-info">
