@@ -377,7 +377,7 @@ textarea {
 
   position: sticky;
   top: var(--nav-h, 0px);
-  z-index:1;
+  z-index: 1;
   background: var(--fhu-grey-50);
 }
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import type { Tab } from "../App";
 
 type Props = {
@@ -10,9 +10,10 @@ type Props = {
 export function TopNav({ activeTab, onTabChange, selectionCount }: Props) {
   const ref = useRef<HTMLElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
+    document.documentElement.style.setProperty("--nav-h", el.offsetHeight + "px");
     const obs = new ResizeObserver(() => {
       document.documentElement.style.setProperty("--nav-h", el.offsetHeight + "px");
     });
