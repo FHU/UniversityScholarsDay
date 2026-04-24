@@ -30,7 +30,15 @@ There are no tests. `npm run typecheck` is the primary quality gate.
 - `format.ts` — `date-fns` wrappers for human-readable time ranges
 - `ics.ts` — RFC 5545-compliant `.ics` file builder; triggers a browser download for calendar export
 
-**Styling:** Plain CSS with custom properties. `src/styles/theme.css` defines FHU brand tokens; `src/styles/globals.css` contains all component styles (~700 lines). No Tailwind, no CSS modules.
+**Styling:** Plain CSS with custom properties. `src/styles/theme.css` defines FHU brand tokens; `src/styles/globals.css` contains all component styles (~700 lines). No Tailwind, no CSS modules. `TopNav` measures its own height via `ResizeObserver` and writes it to `--nav-h` on `:root`; use this variable for any layout that must account for the sticky header height.
+
+**`SessionCard` interaction model:** The card `div` itself is the toggle target (`role="button"`). Any nested interactive element (e.g., the "Read speaker bio" button) must carry `data-stop` — `handleClick` checks `target.closest("[data-stop]")` and bails out, preventing the toggle from firing.
+
+**`groupByBlock` duplication:** This function is copied verbatim into both `ScheduleView.tsx` and `MyScheduleView.tsx`. Changes to grouping logic must be applied in both files.
+
+## Stack
+
+Vite 5 + React 18 + TypeScript 5. Runtime dependencies: `react`, `react-dom`, `date-fns` (time formatting only). No state management library, no router, no UI component library.
 
 ## Key Files
 
@@ -40,6 +48,8 @@ There are no tests. `npm run typecheck` is the primary quality gate.
 | `src/data/sessions.ts` | All session records for the event |
 | `src/components/ScheduleView.tsx` | Main browse view: search, room filtering, time-block grouping |
 | `src/components/MyScheduleView.tsx` | Personal schedule view: conflict detection, ICS export |
+| `src/components/SessionCard.tsx` | Shared card used in both views; handles toggle, keyboard nav, bio trigger |
+| `src/components/KeynoteBioModal.tsx` | Bio modal; only rendered when `session.bio` is set |
 | `src/lib/ics.ts` | Most algorithmically complex file; hardcoded `America/Chicago` VTIMEZONE |
 
 ## Deployment

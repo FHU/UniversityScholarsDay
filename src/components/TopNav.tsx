@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import type { Tab } from "../App";
 
 type Props = {
@@ -7,8 +8,20 @@ type Props = {
 };
 
 export function TopNav({ activeTab, onTabChange, selectionCount }: Props) {
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new ResizeObserver(() => {
+      document.documentElement.style.setProperty("--nav-h", el.offsetHeight + "px");
+    });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <header className="top-nav">
+    <header ref={ref} className="top-nav">
       <div className="top-nav-inner">
         <div className="top-nav-header">
           <div className="brand-row">

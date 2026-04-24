@@ -73,6 +73,7 @@ textarea {
   max-width: 1120px;
   margin: 0 auto;
   padding: 20px 16px 56px;
+  position: relative;
 }
 
 @media (min-width: 768px) {
@@ -89,6 +90,7 @@ textarea {
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
+  width: 100%;
   z-index: 40;
 }
 
@@ -369,9 +371,14 @@ textarea {
   flex-wrap: wrap;
   align-items: baseline;
   gap: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 16px;
+  padding-block: 1rem;
+  margin-bottom: 0.5rem;
   border-bottom: 2px solid var(--fhu-maroon);
+
+  position: sticky;
+  top: var(--nav-h, 0px);
+  z-index:1;
+  background: var(--fhu-grey-50);
 }
 
 .timeblock-time {
